@@ -1,6 +1,7 @@
 #include "stm8l15x.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "rtc.h"
 #include "adc.h"
 #include "frame.h"
@@ -46,6 +47,7 @@ extern unsigned int ManualWateringCount;
 extern unsigned int Vbat_ValueInMain;
 extern unsigned char GprsStopSendFlag;
 extern unsigned char HumidityValue;
+extern short TempValue;
 extern unsigned char PressValue;
 //在开阀浇水过程中对传感器定期采集的标志位；
 extern unsigned char WaterOnSenorFlag;
@@ -486,6 +488,22 @@ void main(void)
 					USART3_sendchar((HumidityValue/10)%10+'0');
 					USART3_sendchar(HumidityValue%10+'0');
 					USART3_sendstr("%RH\r\n");
+					USART3_sendstr("	TemperatureValue:");
+                    if(TempValue>=0)
+                    {
+                        USART3_sendchar((TempValue/100)%10+'0');
+                        USART3_sendchar((TempValue/10)%10+'0');
+                        USART3_sendchar(TempValue%10+'0');
+                        USART3_sendstr("℃\r\n");
+                    }
+                    else
+                    {
+                        USART3_sendchar('-');
+                        USART3_sendchar((abs(TempValue)/100)%10+'0');
+                        USART3_sendchar((abs(TempValue)/10)%10+'0');
+                        USART3_sendchar(abs(TempValue)%10+'0');
+                        USART3_sendstr("℃\r\n");
+                    }
 					USART3_sendstr("	PressValue:");
 					USART3_sendchar((PressValue/100)%10+'0');
 					USART3_sendchar((PressValue/10)%10+'0');
@@ -533,6 +551,22 @@ void main(void)
 					USART3_sendchar((HumidityValue/10)%10+'0');
 					USART3_sendchar(HumidityValue%10+'0');
 					USART3_sendstr("%RH\r\n");
+					USART3_sendstr("	TemperatureValue:");
+                    if(TempValue>=0)
+                    {
+                        USART3_sendchar((TempValue/100)%10+'0');
+                        USART3_sendchar((TempValue/10)%10+'0');
+                        USART3_sendchar(TempValue%10+'0');
+                        USART3_sendstr("℃\r\n");
+                    }
+                    else
+                    {
+                        USART3_sendchar('-');
+                        USART3_sendchar((abs(TempValue)/100)%10+'0');
+                        USART3_sendchar((abs(TempValue)/10)%10+'0');
+                        USART3_sendchar(abs(TempValue)%10+'0');
+                        USART3_sendstr("℃\r\n");
+                    }
 					USART3_sendstr("	PressValue:");
 					USART3_sendchar((PressValue/100)%10+'0');
 					USART3_sendchar((PressValue/10)%10+'0');

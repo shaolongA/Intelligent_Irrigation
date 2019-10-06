@@ -6,7 +6,7 @@
 //土壤湿度；
 unsigned char HumidityValue=0;
 //土壤温度；
-unsigned char TempValue=0;
+short TempValue=0;
 //水压；
 unsigned char PressValue=0;
 stUart uart_sensor;
@@ -174,7 +174,7 @@ void sensor_analyze(unsigned char* data,unsigned int size)//传感器采集到的数据进
 //01 5D//湿度
 //00 B9//温度
 	HumidityValue = (data[3]*256 +data[4])/10;
-	TempValue = (data[5]*256 +data[6])/10;
+	TempValue = (short)(data[5]*256 +data[6]);
 }
 void press_analyze(unsigned char* data,unsigned int size)
 {

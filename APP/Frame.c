@@ -25,6 +25,7 @@ unsigned char GprsStopSendFlag=GPRS_SEND_ENABLE;
 unsigned int Vbat_ValueInMain=0;
 
 extern unsigned char HumidityValue;
+extern short TempValue;
 extern unsigned char PressValue;
 unsigned char SOURCE_ID[6]={0x11,0x11,0x11,0x11,0x11,0x11};
 const unsigned char TARGET_ID[6]={0,0,0,0,0,0};
@@ -135,7 +136,10 @@ void SendAnologyQuantity(void)
 	Data_Frame[Data_Count++]=06;
 	Data_Frame[Data_Count++]=01;
 	Data_Frame[Data_Count++]= PressValue;
-	
+    //土壤温度
+	Data_Frame[Data_Count++]=03;
+	Data_Frame[Data_Count++]=01;
+	Data_Frame[Data_Count++]= (char)(TempValue / 10);
 	//校验和
 	Check_Sum=0;
 	for(i=2;i<23+lenth;i++)
