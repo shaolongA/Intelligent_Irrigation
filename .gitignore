@@ -51,10 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-/Intelligent_Irrigation/Debug/
-/Intelligent_Irrigation/STM8L15x_StdPeriph_Driver/inc/
-/Intelligent_Irrigation/STM8L15x_StdPeriph_Driver/src/
-/Intelligent_Irrigation/settings/
+/Debug/
+/settings/
 
 
 
