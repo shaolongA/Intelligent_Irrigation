@@ -50,30 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-*.tmp
-*.ewp
-*.log
-*.s19
-*.bin
-*.lst
-*.xcl
-*.pbi
-*.browse
-*.linf
-*.dbgdt
-*.ps1
-*.bat
-*.pbd
-*.dni
-*.dnx
-*.reggroups
-*.ewd
-*.dep
-*.ewt
-*.wsdt
-*.eww
+
 /Intelligent_Irrigation/Debug/
-/Intelligent_Irrigation/STM8L15x_StdPeriph_Driver/
+/Intelligent_Irrigation/STM8L15x_StdPeriph_Driver/inc/
+/Intelligent_Irrigation/STM8L15x_StdPeriph_Driver/src/
 /Intelligent_Irrigation/settings/
 
 
